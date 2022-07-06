@@ -96,7 +96,7 @@ const UserInput = () => {
                 null
             }
 
-            {/* Id user not found then show error message */}
+            {/* If user not found then show error message */}
             {isError ?
                 <Text
                     sx={{
@@ -108,7 +108,8 @@ const UserInput = () => {
                     }}>
                     User not found!!!!
                 </Text> :
-                null}
+                null
+            }
 
             {/* Box to display UserCard, Repos and Followers component */}
             <Box
