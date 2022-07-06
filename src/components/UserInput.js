@@ -20,7 +20,7 @@ const UserInput = () => {
         resolver: yupResolver(schema),
     });
 
-    const { data, refetch } = useQuery(
+    const { data, refetch, isError } = useQuery(
         "user",
         async () => await axios.get(`https://api.github.com/users/${getValues("username")}`),
         {
@@ -38,6 +38,7 @@ const UserInput = () => {
 
     return (
         <>
+            {/* Box for taking user's input */}
             <Box sx={{
                 width: "500px",
                 margin: "auto",
@@ -95,6 +96,21 @@ const UserInput = () => {
                 null
             }
 
+            {/* Id user not found then show error message */}
+            {isError ?
+                <Text
+                    sx={{
+                        marginTop: "5px",
+                        marginLeft: "470px",
+                        color: "red",
+                        fontWeight: "500",
+                        fontSize: "15px",
+                    }}>
+                    User not found!!!!
+                </Text> :
+                null}
+
+            {/* Box to display UserCard, Repos and Followers component */}
             <Box
                 sx={{
                     marginTop: "20px",
