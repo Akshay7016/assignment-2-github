@@ -27,7 +27,6 @@ const UserInput = () => {
             enabled: false,
         })
 
-
     const fetchDetails = () => {
         refetch()
 
